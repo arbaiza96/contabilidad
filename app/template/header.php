@@ -4,10 +4,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>CONTABILIDAD</title>
+    <title>Contabilidad</title>
+    <link rel="shortcut icon" href="../favicon.ico" />
     <?php 
       $dir = 'http://localhost/contabilidad/';
       $file = explode("/",$_SERVER['SCRIPT_NAME'])[count(explode("/",$_SERVER['SCRIPT_NAME']))-1];
+      $_iva = 1.13;
+      echo "<script>const _iva = 1.13;</script>";
     ?>
 
     <style>
