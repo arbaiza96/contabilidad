@@ -16,6 +16,7 @@
       </aside>
       <!-- /.sidebar -->
 
+      <script type="text/javascript" src='js/venta_contribuyentes.js'></script>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -41,10 +42,48 @@
           <div class="container-fluid">
             <div class="row">
 
-              <div class="col-lg-12 col-sm-12" id='contenedorEmpresas'>
+              <div class="col-lg-12 col-sm-12" id='contenedor_compras'>
                 <div class="card">
                   <div class="card-body">
-
+                    <div class="col p-0 d-flex justify-content-end">
+                      <div class="">
+                        <button class='btn btn-dark' id='btnRecargar'>&nbsp;<span class='fa fa-refresh'></span>&nbsp;</button>
+                        <button class='btn btn-primary' id='btnAgregarRegistro'>Nuevo registro</button>
+                      </div>
+                    </div>
+                    <div class="table-responsive">
+                      <table class='table table-striped table-bordered table-hover table-sm border mt-3'>
+                        <thead>
+                          <tr>
+                            <th rowspan='2'>#</th>
+                            <th rowspan='2'>Fecha</th>
+                            <th rowspan='2'>No doc.</th>
+                            <th rowspan='2'>Nrc</th>
+                            <th rowspan='2'><span>Nombre Prov. /</span><br><span>Tipo Doc.</span></th>
+                            <th colspan='2'>Exentas</th>
+                            <th colspan='2'>Gravadas</th>
+                            <th rowspan='2'>Ccf</th>
+                            <th rowspan='2'>Total compras</th>
+                            <th rowspan='2'>Percep. Iva</th>
+                            <th rowspan='2'>Reten. Iva</th>
+                            <th rowspan='2'>Reten. Terceros</th>
+                            <th rowspan='2' title='Sujetos excluidos'>Excluidos</th>
+                            <th rowspan='2'>Opc.</th>
+                          </tr>
+                          <tr>
+                            <th>Internas</th>
+                            <th>Import</th>
+                            <th>Internas</th>
+                            <th>Import</th>
+                          </tr>
+                        </thead>
+                        <tbody id='lista_compras'>
+                          <tr>
+                            <td colspan='16' class='text-center py-3'>Registro de compras</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                 </div>
               </div>
