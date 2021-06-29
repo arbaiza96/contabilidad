@@ -6,6 +6,39 @@ class empresas extends Conexion{
 		parent::__construct();  
 	}
 
+  
+
+  public function guardar_compra(){
+    $data = $_REQUEST['data'];
+    $id_empresa = $data['id_empresa'];
+    $ex_internas = $data['ex_internas'];
+    $ex_import = $data['ex_import'];
+    $gr_internas = $data['gr_internas'];
+    $gr_import = $data['gr_import'];
+    $fovial = $data['fovial'];
+    $per_iva = $data['per_iva'];
+    $ret_iva = $data['ret_iva'];
+    $ret_ter = $data['ret_ter'];
+    $sujetos = $data['sujetos'];
+    $cf = $data['cf'];
+    $total = $data['total'];
+    $tipo_documento = $data['tipo_documento'];
+    $fecha = $data['fecha'];
+    $numero = $data['numero'];
+    $id_proveedor = $data['id_proveedor'];
+    $registro = $data['registro'];
+    $nit = $data['nit'];
+    $resolucion = $data['resolucion'];
+    $serie = $data['serie'];
+    $clasificacion = $data['clasificacion'];
+    $clasificacion_detalle = $data['clasificacion_detalle'];
+
+    echo "<pre>";
+    print_r($_REQUEST);
+    echo "</pre>";
+
+  }
+
   public function guardar_sucursal(){
     return json_encode(1);
   }

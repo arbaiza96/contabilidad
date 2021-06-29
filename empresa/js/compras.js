@@ -66,15 +66,14 @@ $(document).ready(function(){
       clasificacion : clasificacion,
       clasificacion_detalle : clasificacion_detalle,
     }
-
-    console.log(arr);
-
+    guardar_compra(arr);
     if(tipo_documento == ""){
       alertify.error("Debes llenar los campos obligatorios");
       return false;
     }
-
   })
+
+
 
   $("#txtProveedor").autocomplete({
     source: "../app/request.php?class=empresas&action=proveedor_autocomplete&id="+idempresa_,
@@ -102,16 +101,37 @@ $(document).ready(function(){
 
   $("#slcClasificacion").on('change',function(){
     let valor = $(this).val();
-    console.log(valor);
     let e = $("#slcClasificacionDetalle"); e.html("<option value='' class='d-none'>Seleccione</option>");
     $.each(source.clas_detalle, function(index, val) {
-      console.log(val.id_clasificacion + " - " + valor);
       if(val.id_clasificacion == valor){
         e.append("<option value='"+val.id+"'>"+val.nombre+"</option>");
       }
     })
   })
 })
+
+function guardar_compra(arr){
+  console.log(arr);
+  $.ajax({
+    url: '../app/request.php',
+    type: 'post',
+    dataType: 'json',
+    data: {
+      class: 'empresas',
+      action: 'guardar_compra',
+      data : arr,
+    },
+  }).done(function(data, textstatus, jqxhr){
+    console.log(data);
+  }).fail(function(data, textstatus, jqxhr){
+    console.log(data);
+  });
+}
+
+function numero_documento(){
+  console.log("numero documendo");
+}
+
 
 function calcular_total(){
   let ex_internas = ($("#txt_ex_internas").val()*1);

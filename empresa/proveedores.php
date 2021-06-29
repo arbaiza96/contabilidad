@@ -1,20 +1,6 @@
   <?php require '../app/template/header.php'; ?>
-      <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link">
-          <img src="../dist/img/ContaLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-               style="opacity: .8">
-          <span class="brand-text font-weight-light">CONTABILIDAD</span>
-        </a>
-        <!-- Sidebar -->
-        <div class="sidebar">
-          <!-- Sidebar Menu -->
-          <?php require 'menu/menu.php';?>
-          <!-- /.sidebar-menu -->
-        </div>
-      </aside>
-      <!-- /.sidebar -->
+  <?php require 'menu/menu.php';?>
+  
       <script type="text/javascript" src='js/proveedores.js'></script>
       <!-- Content Wrapper. Contains page content -->
       <div class="content-wrapper">
