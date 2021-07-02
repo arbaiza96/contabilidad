@@ -6,8 +6,6 @@ class empresas extends Conexion{
 		parent::__construct();  
 	}
 
-  
-
   public function guardar_compra(){
     $data = $_REQUEST['data'];
     $id_empresa = $data['id_empresa'];
@@ -32,10 +30,128 @@ class empresas extends Conexion{
     $serie = $data['serie'];
     $clasificacion = $data['clasificacion'];
     $clasificacion_detalle = $data['clasificacion_detalle'];
+    $id_unico = date('YmdHis')."_".rand(1000,9999);
+    $mes = 6;
+    $anio = 2021;
+
+    $q="INSERT INTO libro_compras(
+          id,
+          fecha_documento,
+          comprobante,
+          registro,
+          nit,
+          proveedor,
+          ce_local,
+          ce_inter,
+          cg_local,
+          cg_inter,
+          ccf,
+          fovial,
+          total,
+          p_iva,
+          r_iva,
+          r_terceros,
+          excluidos,
+          tipo_documento,
+          id_proveedor,
+          mes,
+          anio,
+          clasificacion,
+          clasificacion_detalle,
+          resolucion,
+          serie,
+          id_empresa
+        ) 
+        VALUES(
+          :id,
+          :fecha_documento,
+          :comprobante,
+          :registro,
+          :nit,
+          :proveedor,
+          :ce_local,
+          :ce_inter,
+          :cg_local,
+          :cg_inter,
+          :ccf,
+          :fovial,
+          :total,
+          :p_iva,
+          :r_iva,
+          :r_terceros,
+          :excluidos,
+          :tipo_documento,
+          :id_proveedor,
+          :mes,
+          :anio,
+          :clasificacion,
+          :clasificacion_detalle,
+          :resolucion,
+          :serie,
+          :id_empresa
+        )";
+    $st = $this->pdo->prepare($q);
+    $st->execute(array(
+      ":id" => $id_unico,
+      ":fecha_documento" => $fecha,
+      ":comprobante" => $numero,
+      ":registro" => $registro,
+      ":nit" => $nit,
+      ":proveedor" => $id_proveedor,
+      ":ce_local" => $ex_internas,
+      ":ce_inter" => $ex_import,
+      ":cg_local" => $gr_internas,
+      ":cg_inter" => $gr_import,
+      ":ccf" => $cf,
+      ":fovial" => $fovial,
+      ":total" => $total,
+      ":p_iva" => $per_iva,
+      ":r_iva" => $ret_iva,
+      ":r_terceros" => $ret_ter,
+      ":excluidos" => $sujetos,
+      ":tipo_documento" => $tipo_documento,
+      ":id_proveedor" => $id_proveedor,
+      ":mes" => $mes,
+      ":anio" => $anio,
+      ":clasificacion" => $clasificacion,
+      ":clasificacion_detalle" => $clasificacion_detalle,
+      ":resolucion" => $resolucion,
+      ":serie" => $serie,
+      ":id_empresa" => $id_empresa,
+    ));
 
     echo "<pre>";
     print_r($_REQUEST);
     echo "</pre>";
+
+// id,
+// fecha_documento,
+// comprobante,
+// registro,
+// nit,
+// proveedor,
+// ce_local,
+// ce_inter,
+// cg_local,
+// cg_inter,
+// ccf,
+// fovial,
+// total,
+// p_iva,
+// r_iva,
+// r_terceros,
+// excluidos,
+// fecha_registro,
+// tipo_documento,
+// id_proveedor,
+// mes,
+// anio,
+// clasificacion,
+// clasificacion_detalle,
+// resolucion,
+// serie,
+// id_empresa,
+
 
   }
 
